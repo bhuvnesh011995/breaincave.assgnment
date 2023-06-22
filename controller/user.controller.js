@@ -8,7 +8,7 @@ const addUser = async function(req,res,next){
     }).end();
 }
 const getAllUser = async function (req,res,next){
-    res.status(200).json({
+	res.status(200).json({
         success:true,
         message:"have privilege"
     }).end();
