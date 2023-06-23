@@ -11,7 +11,7 @@ const deletePri = async function(req,res,next){
     })
     privilege = privilege.dataValues.privilege;
     if(!privilege || !(JSON.parse(privilege).includes(priConst.delete))){
-        res.status(404).send({
+        res.status(200).send({
             success : false,
             message:"does not have privilege"
         });
@@ -31,11 +31,12 @@ const updatePri = async function (req,res,next){
     })
     privilege = privilege.dataValues.privilege;
     if(!privilege || !(JSON.parse(privilege).includes(priConst.edit))){
-        res.status(404).send({
+        res.status(200).send({
             success : false,
             message:"does not have privilege"
-        });
-        return
+        }).end();
+        return;
+        
     }
     next();
 }
@@ -49,7 +50,7 @@ const addPri = async function (req,res,next){
     })
     privilege = privilege.dataValues.privilege;
     if(!privilege || !(JSON.parse(privilege).includes(priConst.create))){
-        res.status(404).send({
+        res.status(200).send({
             success : false,
             message:"does not have privilege"
         });
@@ -67,7 +68,7 @@ const getPri = async function (req,res,next){
     })
     privilege = privilege.dataValues.privilege;
     if(!privilege || !(JSON.parse(privilege).includes(priConst.get))){
-        res.status(404).send({
+        res.status(200).send({
             success : false,
             message:"does not have privilege"
         });
