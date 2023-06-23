@@ -8,7 +8,8 @@ const varifyEmployee = async function (req,res,next){
     if(!token){
         res.status(401).json({
             message: "Invalid token",
-          }).end();
+          })
+          return
     }
 
     jwt.verify(token, key.secretKey, (err, decoded) => {

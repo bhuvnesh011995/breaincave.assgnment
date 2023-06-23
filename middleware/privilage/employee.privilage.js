@@ -23,7 +23,6 @@ const deletePri = async function(req,res,next){
 
 const updatePri = async function (req,res,next){
     let id = req.body.id
-
     let privilege = await user.findOne({where:{
         id:id
     },
@@ -33,10 +32,9 @@ const updatePri = async function (req,res,next){
     if(!privilege || !(JSON.parse(privilege).includes(priConst.edit))){
         res.status(200).send({
             success : false,
-            message:"does not have privilege"
-        }).end();
+            message:privilege
+        });
         return;
-        
     }
     next();
 }

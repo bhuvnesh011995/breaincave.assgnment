@@ -30,7 +30,7 @@ async function init (){
         })
     }
 }
-// init();
+init();
 
 app.listen(serverConfig.PORT,()=>{
     console.log(`app started at port ${serverConfig.PORT}`)
